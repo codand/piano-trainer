@@ -1,0 +1,20 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .control {
+    display: flex;
+    justify-content: space-between;
+  }
+}

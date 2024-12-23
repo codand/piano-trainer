@@ -24,7 +24,7 @@ function getRandomNote(range: [string, string]): string {
 export const PianoTrainer = () => {
   const handle = useFullScreenHandle();
 
-  const [noteRange, setNoteRange] = useState<[string, string]>(["C3", "C5"]);
+  const [noteRange, setNoteRange] = useState<[string, string]>(["C4", "C6"]);
 
   const [targetNote, setTargetNote] = useState<string>(() => getRandomNote(noteRange));
   const getNextNote = () => {

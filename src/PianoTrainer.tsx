@@ -2,14 +2,15 @@ import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 import { useEffect, useRef, useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import Soundfont from "soundfont-player";
+import { Soundfont } from "smplr";
 import "./App.css";
 import { MIDI } from "./Midi";
 import { PianoKeyboard } from "./PianoKeyboard";
 import { Score } from "./Score";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-const piano = await Soundfont.instrument(new AudioContext(), "acoustic_grand_piano");
+const audioContext = new AudioContext();
+const sound = new Soundfont(audioContext, { instrument: "acoustic_grand_piano" });
 
 function getRandomNote(range: [string, string]): string {
   const [lowestNote, highestNote] = range;
@@ -148,7 +149,8 @@ export const PianoTrainer = () => {
             lowestNote={noteRange[0]}
             highestNote={noteRange[1]}
             onNoteDown={({ note }) => {
-              piano.play(note);
+              audioContext.resume();
+              sound.start(note);
 
               setTotalNotesPlayed((prev) => prev + 1);
 

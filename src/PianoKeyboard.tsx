@@ -1,4 +1,4 @@
-import { ComponentProps, CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import { MIDI } from "./Midi";
 
 export type PianoKeyboardProps = {
@@ -115,7 +115,7 @@ export const PianoKeyboard = ({
         }
         setHoveredNote(note);
       }}
-      onPointerLeave={(e) => {
+      onPointerLeave={() => {
         setHoveredNote(null);
         pressedKeyRef.current = null;
       }}

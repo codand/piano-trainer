@@ -41,6 +41,7 @@ export function Score({ staves = [], timeSignature = "4/4", width = 450, height 
 
     container.innerHTML = "";
 
+    // @ts-expect-error VexFlow types are incomplete
     const vf = new Flow.Factory({ renderer: { elementId: container, width, height } });
     const score = vf.EasyScore();
     const system = vf.System();

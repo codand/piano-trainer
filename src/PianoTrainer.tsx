@@ -2,7 +2,7 @@ import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 import { useEffect, useRef, useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { Soundfont } from "smplr";
+import { SplendidGrandPiano } from "smplr";
 import "./App.css";
 import { MIDI } from "./Midi";
 import { PianoKeyboard } from "./PianoKeyboard";
@@ -10,7 +10,7 @@ import { Score } from "./Score";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 const audioContext = new AudioContext();
-const sound = new Soundfont(audioContext, { instrument: "acoustic_grand_piano" });
+const sound = new SplendidGrandPiano(audioContext);
 
 function getRandomNote(range: [string, string]): string {
   const [lowestNote, highestNote] = range;
